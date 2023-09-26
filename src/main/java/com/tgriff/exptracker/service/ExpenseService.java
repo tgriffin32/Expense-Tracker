@@ -6,4 +6,6 @@ import com.tgriff.exptracker.entity.Expense;
 
 public interface ExpenseService {
     List<Expense> getAllExpenses();
+
+    Expense saveExpense(Expense expense);
 }

@@ -17,9 +17,9 @@ public class Expense {
 
     @Column(name = "expense_category", nullable = true)
     private String category;
-
+ 
     @Column(name = "expense_description", nullable = false)
-    public String description;
+    private String description;
 
     @Column(name = "expense_cost", nullable = false)
     private double dollarAmount;
@@ -41,7 +41,7 @@ public class Expense {
     public void setCategory(String category) {
         this.category = category;
     }
-    public String getDesciption() {
+    public String getDescription() {
         return description;
     }
     public void setDescription(String description) {
@@ -50,7 +50,7 @@ public class Expense {
     public double getDollarAmount() {
         return dollarAmount;
     }
-    public void setDollarAamount(double dollarAmount) {
+    public void setDollarAmount(double dollarAmount) {
         this.dollarAmount = dollarAmount;
     }
 
