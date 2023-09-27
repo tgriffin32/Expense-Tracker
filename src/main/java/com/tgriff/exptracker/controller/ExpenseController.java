@@ -4,6 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.tgriff.exptracker.entity.Expense;
@@ -38,6 +39,30 @@ public class ExpenseController {
     @PostMapping("/expenses")
     public String saveExpense(@ModelAttribute("expense") Expense expense){
         expenseService.saveExpense(expense);
+        return "redirect:/expenses";
+    }
+
+    //Handler method to handle update requests
+    //PathVariable binds id variable to view path
+    @GetMapping("/expenses/edit/{id}")
+    public String editExpenseFrom(@PathVariable Long id, Model model){
+        model.addAttribute("expense", expenseService.getExpenseById(id));
+        return "edit_expense";
+    }
+
+    //Handler method to handle update form requests
+    @PostMapping("/expenses/{id}")
+    public String updateExpense(@PathVariable Long id, @ModelAttribute("expense") Expense expense, Model model){
+        
+        //get student from database by id
+        Expense existingExpense = expenseService.getExpenseById(id);
+        existingExpense.setId(id);
+        existingExpense.setCategory(expense.getCategory());
+        existingExpense.setDescription(expense.getDescription());
+        existingExpense.setDollarAmount(expense.getDollarAmount());
+
+        //save updated expense object
+        expenseService.updateExpense(existingExpense);
         return "redirect:/expenses";
     }
 
