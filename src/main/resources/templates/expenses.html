@@ -54,6 +54,10 @@
                     <td th:text = "${expense.category}"></td>
                     <td th:text = "${expense.description}"></td>
                     <td th:text = "${expense.dollarAmount}"></td>
+                    <td>
+                        <a th:href="@{/expenses/edit/{id}(id=${expense.id})}"
+                        class="btn btn-primary">Update</a>
+                    </td>
                 </tr>
             </tbody>
         </table>

@@ -35,6 +35,11 @@ public class Expense {
         this.description = description;
         this.dollarAmount = dollarAmount;
     }
+
+    public Long getId(){
+        return id;
+    }
+
     public String getCategory() {
         return category;
     }
