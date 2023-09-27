@@ -1,5 +1,7 @@
 package com.tgriff.exptracker.controller;
 
+import java.util.List;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,7 +25,12 @@ public class ExpenseController {
     //handler method to handle list students and return model and view
     @GetMapping("/expenses")
     public String listExpenses(Model model){
+        double totalAmount = expenseService.getAllExpenses().stream().mapToDouble(Expense::getDollarAmount).sum();
+
+        String formattedTotalAmount = String.format("%.2f", totalAmount);
+
         model.addAttribute("expenses", expenseService.getAllExpenses());
+        model.addAttribute("totalAmount", formattedTotalAmount);
         return "expenses";
     }
 
@@ -72,6 +79,21 @@ public class ExpenseController {
         expenseService.deleteExpenseById(id);
         return "redirect:/expenses";
     }
+
+    /* 
+    // Handler to calculate total expenses
+    @GetMapping("/expenses")
+    public String calculateTotalExpenses(Model model){
+        List<Expense> expenses = expenseService.getAllExpenses();
+
+        //Calculate total amount
+        double totalAmount = expenses.stream().mapToDouble(Expense::getDollarAmount).sum();
+        //model.addAttribute("expenses", expenses);
+        model.addAttribute("totalAmount", totalAmount);
+
+        return "expenses";
+    }
+    */
 
     
 }
