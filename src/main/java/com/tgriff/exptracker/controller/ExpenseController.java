@@ -66,5 +66,12 @@ public class ExpenseController {
         return "redirect:/expenses";
     }
 
+    //Handler method to handle delete expense requests
+    @GetMapping("/expenses/{id}")
+    public String deleteExpense(@PathVariable Long id){
+        expenseService.deleteExpenseById(id);
+        return "redirect:/expenses";
+    }
+
     
 }

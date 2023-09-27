@@ -57,6 +57,9 @@
                     <td>
                         <a th:href="@{/expenses/edit/{id}(id=${expense.id})}"
                         class="btn btn-primary">Update</a>
+
+                        <a th:href="@{/expenses/{id}(id=${expense.id})}"
+                        class="btn btn-danger">Delete</a>
                     </td>
                 </tr>
             </tbody>

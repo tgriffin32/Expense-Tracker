@@ -43,5 +43,11 @@ public class ExpenseServiceImpl implements ExpenseService {
     public Expense getExpenseById(Long id) {
         return expenseRepository.findById(id).get();
     }
+
+
+    @Override
+    public void deleteExpenseById(Long id) {
+        expenseRepository.deleteById(id);
+    }
     
 }
