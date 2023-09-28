@@ -80,20 +80,5 @@ public class ExpenseController {
         return "redirect:/expenses";
     }
 
-    /* 
-    // Handler to calculate total expenses
-    @GetMapping("/expenses")
-    public String calculateTotalExpenses(Model model){
-        List<Expense> expenses = expenseService.getAllExpenses();
-
-        //Calculate total amount
-        double totalAmount = expenses.stream().mapToDouble(Expense::getDollarAmount).sum();
-        //model.addAttribute("expenses", expenses);
-        model.addAttribute("totalAmount", totalAmount);
-
-        return "expenses";
-    }
-    */
-
     
 }
