@@ -1,12 +1,12 @@
 package com.tgriff.exptracker;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.CommandLineRunner;
+//import org.springframework.beans.factory.annotation.Autowired;
+//import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import com.tgriff.exptracker.entity.Expense;
-import com.tgriff.exptracker.repository.ExpenseRepository;
+//import com.tgriff.exptracker.entity.Expense;
+//import com.tgriff.exptracker.repository.ExpenseRepository;
 
 @SpringBootApplication
 public class ExpenseTrackerApplication{
